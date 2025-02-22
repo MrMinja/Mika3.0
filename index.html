@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>MIKA STARTSIDA</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mika Minja Sjölund</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <nav class="menu" id="menu">
+        <div class="menu-item">
+            <a href="#" onclick="showGallery()">ARCHIVE</a>
+        </div>
+        <div class="menu-item">
+            <a href="#" onclick="showMikaPage()">MIKA MINJA SJÖLUND</a>
+        </div>
+    </nav>
+</header>
+
+<main class="gallery" id="gallery">
+    <div class="image-grid"></div>
+</main>
+
+<div class="content" id="mika-page" style="display: none;">
+    <div class="intro-text">
+        Multidisciplinär industridesigner och utbildad samhällsplanerare med erfarenhet av rumslig gestaltning och tvärvetenskapligt samarbete.
+        Lösningsorienterad och skicklig på att analysera behov och potential samt visualisera idéer och koncept.
+        Med god kommunikationsförmåga och ett användarcentrerat arbetssätt skapar jag lösningar som gör positiv skillnad.
+        Drivs av nyfikenhet och framåtanda och vill arbeta med offentlig gestaltning och utformning av stadsrum för att bidra till hållbara och inkluderande miljöer.
+    </div>
+    <div class="column">
+        <h2 class="special-font">UTBILDNING</h2>
+        <p><span class="small-text">Augusti 2018 - Juni 2021</span><br><strong>Konstfack, BFA Industridesign, Stockholm</strong></p>
+        <p><span class="small-text">Augusti 2017 - Maj 2018</span><br><strong>Nyckelviksskolan, Arkitektur & Design, Stockholm</strong></p>
+        <p><span class="small-text">Augusti 2014 - Juni 2017</span><br><strong>Lunds Universitet, BA Samhällsplanering, Lund</strong></p>
+        <p><span class="small-text">Augusti 2009 - Juni 2012</span><br><strong>Viktor Rydbergs Gymnasium, Stockholm</strong></p>
+    </div>
+
+    <div class="column">
+        <h2>ERFARENHET</h2>
+        <p><span class="small-text">November 2021 - Juli 2024</span><br><strong>Designer, This Way Up</strong></p>
+        <p><span class="small-text">April - November 2021</span><br><strong>Kreativ konsult, HMT Creative</strong></p>
+        <p><span class="small-text">April 2019 - November 2021</span><br><strong>Showroom & Sales Assistant, Sofacompany</strong></p>
+        <p><span class="small-text">Maj - Augusti 2020</span><br><strong>Praktik, HAHA Studio</strong></p>
+        <p><span class="small-text">Januari - Mars 2017</span><br><strong>Praktik, Riksbyggen Bostad</strong></p>
+    </div>
+
+    <div class="column">
+        <h2>KONTAKT</h2>
+        <p><strong>Mail:</strong> mika.sjolund.ms@email.com</p>
+<p><strong>linkedin:</strong> <a href="https://www.linkedin.com/in/mika-sj%C3%B6lund/" target="_blank">@mikaminjasjolund</a></p>
+      
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/mikasjolund/" target="_blank">@mikaminjasjolund</a></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+    function showMikaPage() {
+        document.getElementById("gallery").style.display = "none";
+        document.getElementById("mika-page").style.display = "flex";
+    }
+
+    function showGallery() {
+        document.getElementById("gallery").style.display = "block";
+        document.getElementById("mika-page").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
