@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 🎨 Komplett lista med bilder
+    console.log("🚀 DOM laddad!");
+
+    const grid = document.querySelector(".image-grid");
+    let isAdmin = localStorage.getItem("isAdmin") === "true";
+
+    if (!grid) {
+        console.error("❌ image-grid hittades inte i HTML!");
+        return;
+    }
+
     const imageSources = [
         "https://i.postimg.cc/mgS2HdmZ/1.jpg",
         "https://i.postimg.cc/q7kHH4X4/10.jpg",
@@ -59,29 +68,22 @@ document.addEventListener("DOMContentLoaded", function () {
         "https://i.postimg.cc/v877cy5p/65.png"
     ];
 
-    const grid = document.querySelector(".image-grid");
-
-    let isAdmin = localStorage.getItem("isAdmin") === "true";
-    let savedOrder = JSON.parse(localStorage.getItem("imageOrder"));
-
-    // Om ingen sparad ordning finns, använd standardordningen
-    if (!savedOrder || savedOrder.length !== imageSources.length) {
-        savedOrder = [...imageSources];
-        localStorage.setItem("imageOrder", JSON.stringify(savedOrder));
-    }
-
     function loadImages() {
         grid.innerHTML = "";
+
+        let savedOrder = JSON.parse(localStorage.getItem("imageOrder")) || imageSources;
+
         savedOrder.forEach((src) => {
             const wrapper = document.createElement("div");
             wrapper.classList.add("image-wrapper");
             wrapper.setAttribute("draggable", isAdmin ? "true" : "false");
-            wrapper.style.cursor = isAdmin ? "grab" : "default"; // Ingen förbjudet-symbol (🚫)
+            wrapper.style.cursor = isAdmin ? "grab" : "default";
 
             const img = document.createElement("img");
             img.src = src;
             img.alt = "Projektbild";
             img.loading = "lazy";
+            img.onerror = () => console.error(`❌ Bilden kunde inte laddas: ${src}`);
 
             wrapper.appendChild(img);
             grid.appendChild(wrapper);
@@ -125,7 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function saveImageOrder() {
         const newOrder = [...document.querySelectorAll(".image-wrapper img")].map(img => img.src);
         localStorage.setItem("imageOrder", JSON.stringify(newOrder));
-        savedOrder = newOrder; // Uppdatera ordningen så att alla besökare ser den
     }
 
     function toggleAdminMode() {
